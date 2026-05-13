@@ -575,7 +575,7 @@
     We'll sort out payment via GCash or Maya, and I ship via Lalamove, J&T, or you can pick up in Mandaue City, Cebu.
   </p>
   <div class="social-links">
-    <a href="https://wa.me/639XXXXXXXXX" class="social-link" target="_blank">💬 WhatsApp</a>
+    <a href="https://m.me/averymay.gt" class="social-link" target="_blank">💬 Messenger</a>
     <a href="https://instagram.com/" class="social-link" target="_blank">📸 Instagram</a>
     <a href="mailto:you@email.com" class="social-link">✉️ Email</a>
   </div>
@@ -608,7 +608,7 @@
 <script>
   // ── PRODUCT DATA ──
   // Edit this array to add/remove/update your items!
-  const WHATSAPP = "639XXXXXXXXX"; // ← Replace with your number
+  const MESSENGER = "averymay.gt"; // ← Facebook username
 
   const products = [
     {
@@ -823,7 +823,7 @@
     const lines = cart.map(p => `• ${p.name} (Size ${p.size}) - ₱${p.price.toLocaleString()}`).join('\n');
     const total = cart.reduce((s, p) => s + p.price, 0);
     const msg = encodeURIComponent(`Hi! I'd like to order the following from Ave's Preloved Closet:\n\n${lines}\n\nTotal: ₱${total.toLocaleString()}\n\nPlease let me know the payment and shipping details. Thank you! 🌸`);
-    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
+    window.open(`https://m.me/${MESSENGER}?text=${msg}`, '_blank');
   }
 
   // ── TOAST ──
