@@ -576,8 +576,8 @@
   </p>
   <div class="social-links">
     <a href="https://m.me/averymay.gt" class="social-link" target="_blank">💬 Messenger</a>
-    <a href="https://www.instagram.com/vrymy" class="social-link" target="_blank">📸 Instagram</a>
-    <a href="averymay06@email.com" class="social-link">✉️ Email</a>
+    <a href="https://instagram.com/" class="social-link" target="_blank">📸 Instagram</a>
+    <a href="mailto:you@email.com" class="social-link">✉️ Email</a>
   </div>
 </section>
 
@@ -598,7 +598,7 @@
       <span>Total</span>
       <span id="cart-total">₱0</span>
     </div>
-    <button class="checkout-btn" onclick="checkout()">Checkout via FB Messenger →</button>
+    <button class="checkout-btn" onclick="checkout()">Checkout via WhatsApp →</button>
   </div>
 </div>
 
@@ -822,8 +822,14 @@
     if (!cart.length) return;
     const lines = cart.map(p => `• ${p.name} (Size ${p.size}) - ₱${p.price.toLocaleString()}`).join('\n');
     const total = cart.reduce((s, p) => s + p.price, 0);
-    const msg = encodeURIComponent(`Hi! I'd like to order the following from Ave's Preloved Closet:\n\n${lines}\n\nTotal: ₱${total.toLocaleString()}\n\nPlease let me know the payment and shipping details. Thank you! 🌸`);
-    window.open(`https://m.me/${MESSENGER}?text=${msg}`, '_blank');
+    const msg = `Hi! I'd like to order the following from Ave's Preloved Closet:\n\n${lines}\n\nTotal: ₱${total.toLocaleString()}\n\nPlease let me know the payment and shipping details. Thank you! 🌸`;
+    navigator.clipboard.writeText(msg).then(() => {
+      showToast('📋 Order copied! Paste it in Messenger 🌸');
+      setTimeout(() => window.open(`https://m.me/${MESSENGER}`, '_blank'), 1200);
+    }).catch(() => {
+      showToast('Opening Messenger...');
+      window.open(`https://m.me/${MESSENGER}`, '_blank');
+    });
   }
 
   // ── TOAST ──
